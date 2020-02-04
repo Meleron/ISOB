@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Lab1
 {
     class Program
     {
         public const int ALPHABET_SIZE = 26;
-        public const string FILE_PATH = "C:\\Users\\dtrotsky\\source\\repos\\bsuir\\Lab1\\Lab1\\bin\\Debug\\data.txt";
+        public const string FILE_PATH = "C:\\Users\\dtrotsky\\source\\repos\\bsuir\\isob\\Lab1\\Lab1\\bin\\Debug\\data.txt";
         static void Main(string[] args)
         {
             int mode;
@@ -27,6 +26,8 @@ namespace Lab1
                     convertedKey = ConvertStringToDigits(ExpandString(((char)(int.Parse(sr.ReadLine()) + 'A')).ToString(), convertedInput.Count));
                 }
             }
+            Console.WriteLine($"Mode: {((mode == 1 || mode == 2) ? "Vigenere" : "Caesar")} {((mode == 1 || mode == 3) ? "encryption" : "decryption")}");
+            Console.WriteLine("Result:\n");
             if (mode == 1 || mode == 3)
                 Encrypt(convertedInput, convertedKey);
             else
